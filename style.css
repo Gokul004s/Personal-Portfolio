@@ -24,11 +24,21 @@ body{
     padding: 0 20px;
 }
 header{
-    padding: 40px 0 30px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 10px 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+}
+header.sticky {
+    background: #222;
+    color: white;
+    height: 72px;
+    transition: all 0.3s;
 }
 header .side-bar{
     position: fixed;
@@ -66,12 +76,12 @@ header .side-bar{
     align-items: center;
 }
 .logo i{
-    height: 45px;
-    width:45px;
+    height: 40px;
+    width:40px;
     background-color: #007ced;
     border-radius: 50%;
     color:#fff;
-    font-weight: 700;
+    font-weight: 650;
     font-size: 1.5rem;
     padding: 10px;
     margin-right: 5px;
@@ -105,13 +115,18 @@ nav .navlinks li a{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top:4rem;
+    padding-top:25vh;
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
 }
+
 .container .hero-pic{
     width: 400px;
     height: 400px;
     overflow: hidden;
     box-shadow: 5px 7px 25px rgb(1, 110, 164);
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1s infinite alternate;
 }
 .hero-pic img{
     height: 100%;
@@ -200,8 +215,11 @@ nav .navlinks li a{
 {
     .container{
         flex-direction: column;
-        padding-top:2rem;
+        padding-top:8rem;
         padding-bottom: 2rem;
+    }
+    .logo{
+        margin-bottom: 30px;
     }
     .hero-text{
         padding:40px 0px;
@@ -221,7 +239,10 @@ nav .navlinks li a{
         width: 650px;
     }
     nav{
-        margin-bottom: 25px;
+        margin-bottom: 30px;
+    }
+    nav .navlinks{
+        padding: 0;
     }
     header{
         padding-top: 0px;
@@ -333,6 +354,9 @@ nav .navlinks li a{
 .about{
     position: relative;
     padding: 60px;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: 25px 500px;
 }
 .about h1{
     text-align: center;
@@ -346,9 +370,15 @@ nav .navlinks li a{
 .edn-container{
     padding: 60px;
     color: #e5e5e5;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: 20px 500px;
 }
 .skills{
     padding: 60px;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: 20px 500px;
 }
 .skills h1{
     text-align: center;
@@ -369,12 +399,18 @@ nav .navlinks li a{
 .project-container{
     padding: 50px;
     color: #e5e5e5;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: 20px 500px;
 }
 .project-container a{
     text-decoration: none;
 }
 .contact-container{
     padding: 60px;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: 20px 500px;
 }
 .contact h1{
     text-align: center;
@@ -393,4 +429,10 @@ nav .navlinks li a{
 }
 .footer .social i:hover{
     color: #007ced;
+}
+@keyframes fade-in{
+    from{scale: .8; opacity: 0;}
+    to{
+        scale: 1; opacity: 1;
+    }
 }
